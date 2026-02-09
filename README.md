@@ -1,48 +1,51 @@
-# Emotional Mirror (MVP)
-Voluntary (opt-in) self-awareness companion: chat + short camera-based session to help users reflect on emotional tension/stress.
-Not a medical device. Not therapy. No diagnosis.
+# Emotional Mirror (Web MVP)
+A privacy-first, opt-in self-awareness companion: chat + a short (30s) camera session that gives a gentle, non-clinical “emotional mirror” (e.g., possible tension/stress) and guides the user into reflection.
 
-## What this is
-A privacy-first well-being tool that helps users notice possible signs of stress/tension and guides them through gentle reflection.
+> **Not therapy. Not a medical device. No diagnosis.**
 
-## Core MVP features
-- Chat interface (session-based context)
-- "Self-Awareness Session (30s)" camera mode (user-initiated only)
-- On-device / ephemeral processing: no video stored
-- Outputs 3–4 high-level states (e.g., calm / tension / stress / fatigue) + confidence
-- Follow-up reflection prompts (no clinical claims)
+## Why this exists
+Many people say “I’m fine” while their body shows signs of tension or stress. This project helps users notice that mismatch and choose a short reflection flow to regain clarity and control.
 
-## What this is NOT
-- Not therapy, not a substitute for professional help
-- No diagnosis, no medical claims
-- No continuous monitoring, no background camera use
-- No hidden recording
+## MVP scope (Web)
+### Included
+- Chat UI (session-based)
+- **Opt-in** “Self-Awareness Session (30s)” using the camera (user-initiated only)
+- Ephemeral processing (no raw video stored by default)
+- Output: 3–4 high-level states + confidence (e.g., calm/tension/stress/fatigue)
+- Reflection flow (5–7 prompts) after results
 
-## Privacy & Safety
-- Camera is OFF by default and only runs after explicit user action
-- Default: do not store video/audio
-- Only store aggregated numeric signals (optional, can be disabled)
-- Users can delete their data
-- If user indicates self-harm risk: provide crisis resources and encourage contacting professionals
+### Not included (MVP)
+- No continuous monitoring / background camera use
+- No medical claims, diagnosis, or treatment
+- No storing raw video/audio frames
+- No payments, no notifications, no long-term analytics (yet)
+
+## Safety & privacy principles
+- Camera is **OFF by default** and runs only after explicit user action
+- Session is time-limited (default: 30s) and user can stop anytime
+- Default: do not store raw video; store only aggregated signals (optional)
+- Users can delete their stored data
+- Crisis handling: if user indicates self-harm risk, the assistant provides crisis resources and encourages contacting professionals
 
 ## Tech (planned)
-- Frontend: Next.js (React) + WebRTC getUserMedia
-- Backend: FastAPI + PostgreSQL (user profile) + Redis (sessions)
-- CV signals: MediaPipe face landmarks (MVP) + heuristic stress/tension indicators
-- LLM: dialogue + structured prompts + guardrails
+- Frontend: Next.js (React)
+- Backend: FastAPI (Python)
+- DB: PostgreSQL (or Supabase)
+- CV signals: MediaPipe face landmarks (MVP) + simple heuristics
+- LLM: dialogue + guardrails + structured prompts
 
 ## Repo structure
-- `/frontend` – web UI (chat + camera session)
-- `/backend` – API, user state, session logic
-- `/docs` – product spec, UX flows, safety notes
+- `/frontend` – Next.js web app (chat + camera session)
+- `/backend` – FastAPI API (sessions, optional storage)
+- `/docs` – product spec, UX flow, privacy/safety notes
 
-## Getting started (placeholder)
+## Quickstart (placeholder)
 Coming soon.
 
 ## Roadmap
-- v0.1: chat + camera session + basic signals + reflection flow
-- v0.2: user profile (patterns over time) + export/delete data
-- v0.3: voice signals (optional) + improved feedback quality
+- v0.1: chat + consented camera session + basic results + reflection flow
+- v0.2: user profile (patterns over time) + export/delete
+- v0.3: optional voice signals + improved signal model
 
 ## License
 TBD
